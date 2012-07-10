@@ -1,9 +1,9 @@
 .resource_methods
   %a{:id => "#{@resource_name}_method_#{@method_order}"}
+  %h2= "#{@method} #{@url}"
   %p
     %strong Description:
     = @content
-  %h2= @url
   - if @access
     %strong Access:
     = @access
