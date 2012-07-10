@@ -1,0 +1,5 @@
+# Example Config
+#
+# events:
+#  location: "/api/v2/events"
+#  controller_name: "api/v2/events_controller.rb"

@@ -1,3 +1,5 @@
+require 'yaml'
+
 module RapiDoc
   module RapiConfig
 
@@ -7,15 +9,15 @@ module RapiDoc
       @template_dir ||= File.join(File.dirname(__FILE__), '../../templates')
       form_file_name @template_dir, f
     end
-     
+
     def config_dir(f = nil)
       @config_dir ||= File.join(::Rails.root.to_s, 'config/rapi_doc')
       form_file_name @config_dir, f
     end
-    
+
     def target_dir(f = nil)
       @target_dir ||= File.join(::Rails.root.to_s, 'public/apidoc/')
-      form_file_name @target_dir, f 
+      form_file_name @target_dir, f
     end
 
     def controller_dir(f = nil)
@@ -27,6 +29,10 @@ module RapiDoc
     def temp_dir(f = nil)
       @temp_dir ||= "#{Dir.mktmpdir("apidoc")}/"
       form_file_name @temp_dir, f
+    end
+
+    def get_config
+      @config = YAML.load_file(Rails.root.join("config","rapi_doc","config.yml"))
     end
 
     def form_file_name(dir, file)

@@ -5,7 +5,7 @@ namespace :rapi_doc do
   desc "Generate the config files"
   task :setup do
     create_structure!
-    #puts "Now specify controllers in config/rapi_doc/config.yml for which api documentation is to be generated and then run rapi_doc::generate"
+    puts "Now specify controllers in config/rapi_doc/config.yml for which api documentation is to be generated and then run rapi_doc::generate"
   end
 
   desc "Generate the api documentation"
