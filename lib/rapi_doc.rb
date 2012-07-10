@@ -83,8 +83,8 @@ module RapiDoc
 
     # Creates views for the resources
     def generate_resource_templates!(resource_docs)
-      class_template = IO.read(template_dir('_resource_header.html.haml'))
-      method_template = IO.read(template_dir('_resource_method.html.haml'))
+      class_template = IO.read(config_dir('_resource_header.html.haml'))
+      method_template = IO.read(config_dir('_resource_method.html.haml'))
       resource_docs.each { |resource| resource.parse_apidoc!(class_template, method_template) }
       template = IO.read(config_dir('index.html.haml'))
       parsed = Haml::Engine.new(template).render(Object.new, :resource_docs => resource_docs)
